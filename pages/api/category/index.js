@@ -16,8 +16,8 @@ export default async function getCategories(req, res) {
       res.json(error, "no data is inserted");
     }
   }else if (req.method === "PUT") {
-    const updateCategory = await db.prepare(
-      "UPDATE category set category_name = ? where cat_id = ?"
+    const updatePost = await db.prepare(
+      "UPDATE post set category_name = ? where cat_id = ?"
     ); //id lagbe tai sesh parameter a dewa hoice
     try {
       const response = await updateCategory.run(req.body.category_name, req.body.cat_id);

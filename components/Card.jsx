@@ -12,7 +12,7 @@ const StyledLink = styled(Box)(({fontSize,mycolor})=>({
     fontSize: fontSize,
     fontFamily: "source-serif-pro, Source Serif Pro",
     fontWeight: 'bold',
-    color: mycolor? mycolor : 'black',
+    color: mycolor? mycolor : '',
     cursor: 'pointer',
     lineHeight: 1,
     ":hover":{

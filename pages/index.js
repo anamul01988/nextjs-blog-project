@@ -20,3 +20,11 @@ export default function Home() {
     </>
   );
 }
+export async function getStaticProps(context) {
+   const Postres = await fetch("http://localhost:3000/api/post");
+   const posts = await Postres.json();
+   console.log(posts)
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}

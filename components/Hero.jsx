@@ -18,7 +18,7 @@ const Hero = (props) => {
                   imgWidth={566}
                   imgHeight={400}
                   mycolor={"black"}
-                  linkSrc="/"
+                  linkSrc={`posts/${post.slug}`}
                   fontSize={"40px"}
                   // imgSrc="https://cdn.pixabay.com/photo/2014/09/27/17/35/dandelion-463928__480.jpg"
                   imgSrc={post.imageUrl}
@@ -45,7 +45,7 @@ const Hero = (props) => {
                   imgWidth={280}
                   imgHeight={220}
                   mycolor={"black"}
-                  linkSrc="/"
+                  linkSrc={`posts/${post.slug}`}
                   fontSize={"18px"}
                   // imgSrc="https://cdn.pixabay.com/photo/2014/09/27/17/35/dandelion-463928__480.jpg"
                   imgSrc={post.imageUrl}
@@ -74,7 +74,7 @@ const Hero = (props) => {
             imgWidth={280}
             imgHeight={220}
             mycolor={"black"}
-            linkSrc="/"
+            linkSrc={`/`}
             fontSize={"18px"}
             imgSrc="https://cdn.pixabay.com/photo/2014/09/27/17/35/dandelion-463928__480.jpg"
             // heading={"Example"}

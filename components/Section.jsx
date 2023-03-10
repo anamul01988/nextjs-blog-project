@@ -59,7 +59,7 @@ const Section = (props) => {
                         imgWidth={350}
                         imgHeight={300}
                         mycolor={"white"}
-                        linkSrc="/"
+                        linkSrc={`posts/${post.slug}`}
                         imgSrc={post.imageUrl}                        //   heading={"Example"}
                         // title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
                         title={post.title}

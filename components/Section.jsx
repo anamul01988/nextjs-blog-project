@@ -16,218 +16,81 @@ const StyledBox = styled(Box)({
   alignItems: "center",
   padding: "20px 20px 10px 0px",
 });
-const Section = () => {
+const Section = (props) => {
+  // console.log("props category", props.category);
   return (
-    <>  <StyledContainer
-    mybgcolor={"black"}
-    mycolor="white"
-    mywidth="100%"
-  //   myheight="200px"
-  >
-    <Container>
-      <StyledBox>
-        <Box flex={1}>
-          <Typography
-            sx={{
-              textTransform: "capitalize",
-              borderBottom: "2px solid white",
-              width: "fit-content",
-              fontWeight: "bold",
-            }}
+    <>
+      {
+        props.category.slice(0, 10).map((category)=>{
+          return (
+            <StyledContainer
+            mybgcolor={`${(category.cat_id + 3) % 4 === 0 ? "black" : "white"}`}  //0 + 3 mod 4  = 0 tai black jeita id = 0, jodi 1 hoy taile mod korar por reminder hoy 1 tai false er black . aivabe loop cholte thakbe
+            mycolor={`${(category.cat_id + 3) % 4 === 0 ? "white" : "black"}`}
+            key = {category.cat_id}
+            mywidth="100%"
+            //   myheight="200px"
           >
-            Category Name
-          </Typography>
-        </Box>
-        <Box>
-          <a href="/">See more</a>
-        </Box>
-      </StyledBox>
-      <Grid container>
-        <Grid sm={4}>
-          <Card
-            direction={"column"}
-            imgWidth={350}
-            imgHeight={300}
-            mycolor={"white"}
-            linkSrc="/"
-            imgSrc="https://cdn.pixabay.com/photo/2014/09/27/17/35/dandelion-463928__480.jpg"
-          //   heading={"Example"}
-            title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
-            Desc={
-              "Complete Next api and crud   with responsive mui5 blog codingstra"
-            }
-            EditButton={
-              <Fab
-                size="small"
-                variant="extended"
-                color="success"
-                aria-label="edit"
-              >
-                Edit
-              </Fab>
-            }
-          />
-        </Grid>
-        <Grid sm={4}>
-          <Card
-            direction={"column"}
-            imgWidth={350}
-            imgHeight={300}
-            mycolor={"white"}
-            linkSrc="/"
-            imgSrc="https://cdn.pixabay.com/photo/2023/02/08/07/32/vietnamese-woman-7775904_640.jpg"
-          //   heading={"Example"}
-            title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
-            Desc={
-              "Complete Next api and crud   with responsive mui5 blog codingstra"
-            }
-            EditButton={
-              <Fab
-                size="small"
-                variant="extended"
-                color="success"
-                aria-label="edit"
-              >
-                Edit
-              </Fab>
-            }
-          />
-        </Grid>
-        <Grid sm={4}>
-          <Card
-            direction={"column"}
-            imgWidth={350}
-            imgHeight={300}
-            mycolor={"white"}
-            linkSrc="/"
-            imgSrc="https://cdn.pixabay.com/photo/2023/02/07/00/25/relaxed-7772958_640.jpg"
-          //   heading={"Example"}
-            title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
-            Desc={
-              "Complete Next api and crud   with responsive mui5 blog codingstra"
-            }
-            EditButton={
-              <Fab
-                size="small"
-                variant="extended"
-                color="success"
-                aria-label="edit"
-              >
-                Edit
-              </Fab>
-            }
-            Button = "Button"
-            ButtonText = "Read More"
-          />
-        </Grid>
-      </Grid>
-    </Container>
-  </StyledContainer>
-  <StyledContainer
-      mybgcolor={"white"}
-      mycolor="black"
-      mywidth="100%"
-    //   myheight="200px"
-    >
-      <Container>
-        <StyledBox>
-          <Box flex={1}>
-            <Typography
-              sx={{
-                textTransform: "capitalize",
-                borderBottom: "2px solid white",
-                width: "fit-content",
-                fontWeight: "bold",
-              }}
-            >
-              Category Name
-            </Typography>
-          </Box>
-          <Box>
-            <a href="/">See more</a>
-          </Box>
-        </StyledBox>
-        <Grid container>
-          <Grid sm={4}>
-            <Card
-              direction={"column"}
-              imgWidth={350}
-              imgHeight={300}
-              mycolor={"white"}
-              linkSrc="/"
-              imgSrc="https://cdn.pixabay.com/photo/2014/09/27/17/35/dandelion-463928__480.jpg"
-            //   heading={"Example"}
-              title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
-              Desc={
-                "Complete Next api and crud   with responsive mui5 blog codingstra"
-              }
-              EditButton={
-                <Fab
-                  size="small"
-                  variant="extended"
-                  color="success"
-                  aria-label="edit"
-                >
-                  Edit
-                </Fab>
-              }
-            />
-          </Grid>
-          <Grid sm={4}>
-            <Card
-              direction={"column"}
-              imgWidth={350}
-              imgHeight={300}
-              mycolor={"white"}
-              linkSrc="/"
-              imgSrc="https://cdn.pixabay.com/photo/2023/02/08/07/32/vietnamese-woman-7775904_640.jpg"
-            //   heading={"Example"}
-              title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
-              Desc={
-                "Complete Next api and crud   with responsive mui5 blog codingstra"
-              }
-              EditButton={
-                <Fab
-                  size="small"
-                  variant="extended"
-                  color="success"
-                  aria-label="edit"
-                >
-                  Edit
-                </Fab>
-              }
-            />
-          </Grid>
-          <Grid sm={4}>
-            <Card
-              direction={"column"}
-              imgWidth={350}
-              imgHeight={300}
-              mycolor={"white"}
-              linkSrc="/"
-              imgSrc="https://cdn.pixabay.com/photo/2023/02/07/00/25/relaxed-7772958_640.jpg"
-            //   heading={"Example"}
-              title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
-              Desc={
-                "Complete Next api and crud   with responsive mui5 blog codingstra"
-              }
-              EditButton={
-                <Fab
-                  size="small"
-                  variant="extended"
-                  color="success"
-                  aria-label="edit"
-                >
-                  Edit
-                </Fab>
-              }
-              Button = "Button"
-              ButtonText = "Read More"
-            />
-          </Grid>
-        </Grid>
-      </Container>
-    </StyledContainer>
+            <Container>
+              {/* {console.log(`${(category.cat_id + 3) % 4 }`)} */}
+              <StyledBox>
+                <Box flex={1}>
+                  <Typography
+                    sx={{
+                      textTransform: "capitalize",
+                      borderBottom: "2px solid white",
+                      width: "fit-content",
+                      fontWeight: "bold",
+                    }}
+                  >
+                  {category.category_name}
+                  </Typography>
+                </Box>
+                <Box>
+                  <a href="/">See more</a>
+                </Box>
+              </StyledBox>
+              <Grid container>
+                {
+                  props.posts.filter((post)=>post.category_name === category.category_name).slice(0,3).map((post)=>{
+                    return(
+                      <Grid sm={4}>
+                      <Card
+                        direction={"column"}
+                        imgWidth={350}
+                        imgHeight={300}
+                        mycolor={"white"}
+                        linkSrc="/"
+                        imgSrc={post.imageUrl}                        //   heading={"Example"}
+                        // title={"The Ultimate Next js with mui5 by gatesNotes Blog"}
+                        title={post.title}
+                        Desc={
+                          post.excerpt
+                        }
+                        EditButton={
+                          <Fab
+                            size="small"
+                            variant="extended"
+                            color="success"
+                            aria-label="edit"
+                          >
+                            Edit
+                          </Fab>
+                        }
+                      />
+                    </Grid>
+                    )
+                  })
+                }
+             
+              
+              </Grid>
+            </Container>
+          </StyledContainer>
+          )
+        })
+      }
+
+
     </>
   );
 };

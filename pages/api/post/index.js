@@ -3,7 +3,7 @@ import slugify from "slugify";
 export default async function getPosts(req, res) {
   const db = await openDb();
   if (req.method === "GET") {
-    const allPosts = await db.all("Select * FROM post");
+    const allPosts = await db.all("Select * FROM post ORDER BY created_at desc");
     res.json(allPosts);
   } else if (req.method === "POST") {
     const createPost = await db.prepare(

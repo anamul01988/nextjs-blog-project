@@ -1,6 +1,7 @@
 import  {Search as SearchIcon, Menu as MenuIcon } from "@mui/icons-material/";
 import { AppBar, Container, styled, Box, Button, Stack, IconButton } from "@mui/material";
 import React, { useState } from "react";
+import FormModal from "./FormDialog";
 import LoginRegisterModal from "./LoginRegisterModal";
 const Menu = styled(Box)({
   borderBottom: "1px solid black",
@@ -31,6 +32,8 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+      const [openForm, setOpenForm] = useState(false);
+
   return (
     <>
       <Container>
@@ -71,6 +74,7 @@ const Navbar = () => {
               Sign Up
             </Button>
             <Button
+            onClick={()=>setOpenForm(!openForm)}
               color="inherit"
               sx={{
                 color: "#0049fb",
@@ -89,8 +93,12 @@ const Navbar = () => {
             </IconButton>
           </Menu>
         </AppBar>
+          {/* ======== modla   */}
+        <FormModal open={openForm} handleClose={()=>setOpenForm(false)}/>
         <LoginRegisterModal open={open} handleClose={handleClose} ha/>
       </Container>
+    
+    
     </>
   );
 };

@@ -6,8 +6,10 @@ const Layout = ({ children }) => {
   return  <>
       <NavbarTop />
       <Navbar />
-      {children}  //aikhane theke somostho component ba app ta render hobe jemon pages er vitor index.js er moddhe jabe
+      {children}  
+     
     </>
 };
 
 export default Layout;
+//  //aikhaner children theke somostho component ba app ta render hobe jemon pages er vitor index.js er moddhe jabe

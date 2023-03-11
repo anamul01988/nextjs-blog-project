@@ -1,15 +1,17 @@
 import { Container, Fab, Grid } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
+import FormModal from "./FormDialog";
 
 const Hero = (props) => {
-  console.log("props", props.posts);
+  const [openForm, setOpenForm] = useState(false);
+  // console.log("props", props.posts);
   return (
     <Container>
       <Grid container>
         {props.posts
           .filter((post) => post.featured === 1)
-          .slice(0, 4)
+          .slice(0, 5)
           .map((post, i) => {
             return i === 0 ? (
               <Grid item xs={12} mb={2} mt={2}>
@@ -23,11 +25,12 @@ const Hero = (props) => {
                   // imgSrc="https://cdn.pixabay.com/photo/2014/09/27/17/35/dandelion-463928__480.jpg"
                   imgSrc={post.imageUrl}
                   heading={"Example"}
-                  title= {post.title}
+                  title={post.title}
                   Desc={post.excerpt}
-                  author={"By" + post.author + "|" +" Jan 09, 2023"}
+                  author={"By" + post.author + "|" + " Jan 09, 2023"}
                   EditButton={
                     <Fab
+                    onClick={() => setOpenForm(post.post_id)}
                       size="small"
                       variant="extended"
                       color="success"
@@ -36,6 +39,21 @@ const Hero = (props) => {
                       Edit
                     </Fab>
                   }
+                />
+                 <FormModal
+                  key={post.post_id}
+                  open={openForm === post.post_id ? true : false}
+                  handleClose={() => setOpenForm(false)}
+                  posts={{ 
+                    post_id: post.post_id,
+                    title: post.title,
+                    imageUrl: post.imageUrl,
+                    excerpt: post.excerpt,
+                    content: post.content,
+                    author: post.author,
+                    featured: post.featured,
+                    category_name: post.category_name
+                   }}
                 />
               </Grid>
             ) : (
@@ -55,6 +73,7 @@ const Hero = (props) => {
                   Desc={post.content}
                   EditButton={
                     <Fab
+                      onClick={() => setOpenForm(post.post_id)}
                       size="small"
                       variant="extended"
                       color="success"
@@ -64,11 +83,26 @@ const Hero = (props) => {
                     </Fab>
                   }
                 />
+                <FormModal
+                  key={post.post_id}
+                  open={openForm === post.post_id ? true : false}
+                  handleClose={() => setOpenForm(false)}
+                  posts={{ 
+                    post_id: post.post_id,
+                    title: post.title,
+                    imageUrl: post.imageUrl,
+                    excerpt: post.excerpt,
+                    content: post.content,
+                    author: post.author,
+                    featured: post.featured,
+                    category_name: post.category_name
+                   }}
+                />
               </Grid>
-            )
+            );
           })}
 
-        <Grid item md={3} spacing={1}>
+        {/* <Grid item md={3} spacing={1}>
           <Card
             direction={"column"}
             imgWidth={280}
@@ -93,7 +127,7 @@ const Hero = (props) => {
               </Fab>
             }
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </Container>
   );
